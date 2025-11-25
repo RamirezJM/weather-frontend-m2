@@ -1,0 +1,6 @@
+.navbar-custom-text .nav-link,
+.navbar-custom-text .navbar-brand {
+    color: #FFFFFF !important; /* Blanco puro para máximo contraste */
+    font-weight: 600;
+    font-size: 1.2rem;
+}

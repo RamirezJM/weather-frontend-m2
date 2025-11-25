@@ -8,11 +8,269 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/styles.css">
-  <title>Weather App</title>
+  <title>ClimApp</title>
 </head>
 
 <body>
+  <header>
 
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom-text bg-primary bg-gradient p-3">
+      <div class="container">
+        <a href="index.html" class="navbar-brand fs-1">
+          <img src="assets/images/logo.png" alt="logo" width="50">
+          ClimApp
+        </a>
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav align-items-center ms-auto ">
+            <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#pronostico" class="nav-link">Pronóstico</a></li>
+            <li class="nav-item"><a href="#acerca-de" class="nav-link">Acerca de</a></li>
+            <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero my-5 p-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img src="assets/images/hero1.jpg" alt="equipo meteorólogos" class="img-fluid rounded-2">
+        </div>
+        <div class="col-md-6">
+          <h1 class="text-center display-3"><span class="text-primary">ClimApp</span>, tecnología y expertos trabajando
+            para ti</h1>
+          <p class="lead mt-4">Transformamos información compleja en una experiencia simple para que tomes mejores
+            decisiones cada día</p>
+          <button class="btn btn-danger fw-semibold d-block mx-auto mt-5">Contáctanos</button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="pronostico p-4 my-4 bg-light" id="pronostico">
+      <div class="container">
+        <h2 class="text-center mb-4">Pronósticos</h2>
+        <p class="text-center">Explora ejemplos reales de nuestros reportes meteorológicos.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/santiago.webp" alt="santiago" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-sun display-4 text-warning"></i></span>
+                <h5 class="card-title mt-3 mb-2">Santiago</h5>
+                <p class="text-secondary mb-1">Despejado</p>
+                <h4 class="fw-bold">28°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="1">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/nueva-york.webp" alt="nueva york" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-clouds display-4 text-secondary"></i></span>
+                <h5 class="card-title mt-3 mb-2">Nueva York</h5>
+                <p class="text-secondary mb-1">Nublado</p>
+                <h4 class="fw-bold">12°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="2">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/londres.webp" alt="londres" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-cloud-rain display-4 text-primary"></i></span>
+                <h5 class="card-title mt-3 mb-2">Londres</h5>
+                <p class="text-secondary mb-1">Lluvia</p>
+                <h4 class="fw-bold">9°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/johannesburg.webp" alt="johannesburg" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-sun display-4 text-warning"></i></span>
+                <h5 class="card-title mt-3 mb-2">Johannesburgo</h5>
+                <p class="text-secondary mb-1">Despejado</p>
+                <h4 class="fw-bold">29°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="4">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/beijing.webp" alt="beijing" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-cloud display-4 text-secondary"></i></span>
+                <h5 class="card-title mt-3 mb-2">Beijing</h5>
+                <p class="text-secondary mb-1">Nublado</p>
+                <h4 class="fw-bold">14°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="5">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/san-francisco.webp" alt="san francisco" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-cloud-sun display-4 text-secondary"></i></span>
+                <h5 class="card-title mt-3 mb-2">San Francisco</h5>
+                <p class="text-secondary mb-1">Parcial</p>
+                <h4 class="fw-bold">17°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="6">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/budapest.webp" alt="budapest" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-cloud-sun display-4 text-secondary"></i></span>
+                <h5 class="card-title mt-3 mb-2">Budapest</h5>
+                <p class="text-secondary mb-1">Parcial</p>
+                <h4 class="fw-bold">11°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="7">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/el-cairo.webp" alt="el cairo" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-sun display-4 text-warning"></i></span>
+                <h5 class="card-title mt-3 mb-2">El Cairo</h5>
+                <p class="text-secondary mb-1">Despejado</p>
+                <h4 class="fw-bold">33°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="8">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/paris.webp" alt="paris" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-cloud-rain display-4 text-primary"></i></span>
+                <h5 class="card-title mt-3 mb-2">Paris</h5>
+                <p class="text-secondary mb-1">Lluvia</p>
+                <h4 class="fw-bold">13°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="9">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="card-img-top">
+                <img src="assets/images/ciudades/sidney.webp" alt="sidney" class="img-fluid rounded-top">
+              </div>
+              <div class="card-body text-center">
+                <span><i class="bi bi-sun display-4 text-warning"></i></span>
+                <h5 class="card-title mt-3 mb-2">Sidney</h5>
+                <p class="text-secondary mb-1">Despejado</p>
+                <h4 class="fw-bold">26°C</h4>
+                <button class="btn btn-primary mt-3 btn-detalle" data-id="10">
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+      <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detalleModalLabel">Ciudad</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <i id="modalIcono" class="bi fs-1"></i>
+                <div>
+                  <h3 id="modalTemp" class="m-0">--°C</h3>
+                  <p id="modalEstado" class="text-muted m-0">Estado</p>
+                </div>
+              </div>
+              <div class="row text-center mb-4">
+                <div class="col-6">
+                  <p class="fw-bold m-0">Humedad</p>
+                  <p id="modalHumedad" class="m-0">--%</p>
+                </div>
+                <div class="col-6">
+                  <p class="fw-bold m-0">Viento</p>
+                  <p id="modalViento" class="m-0">-- km/h</p>
+                </div>
+              </div>
+              <h5 class="mb-3">Pronóstico semanal</h5>
+              <div id="modalPronostico" class="d-flex flex-column gap-2"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+  </main>
 
 
 
