@@ -1,14 +1,22 @@
+const iconos = {
+  despejado: '<i class="bi bi-sun text-warning fs-2"></i>',
+  nublado: '<i class="bi bi-cloud text-secondary fs-2"></i>',
+  lluvia: '<i class="bi bi-cloud-rain text-primary fs-2"></i>',
+  parcial: '<i class="bi bi-cloud-sun text-secondary fs-2"></i>',
+};
+
 const ciudades = [
   {
     id: 1,
     nombre: "Santiago",
+    imagen: "/assets/images/ciudades/santiago.webp",
     icono: "despejado",
     temperatura: 27,
     estado: "despejado",
     humedad: 40,
     viento: 12,
     pronosticoSemana: [
-      { dia: "Hoy", icono: "despejado", temperatura: 27, estado: "despejado" },
+      { dia: "Hoy", icono: 'despejado', temperatura: 27, estado: "despejado" },
       { dia: "Día 2", icono: "parcial", temperatura: 25, estado: "parcial" },
       { dia: "Día 3", icono: "nublado", temperatura: 22, estado: "nublado" },
       { dia: "Día 4", icono: "despejado", temperatura: 26, estado: "despejado" },
@@ -20,6 +28,7 @@ const ciudades = [
   {
     id: 2,
     nombre: "Nueva York",
+    imagen: "/assets/images/ciudades/nueva-york.webp",
     icono: "nublado",
     temperatura: 12,
     estado: "nublado",
@@ -38,6 +47,7 @@ const ciudades = [
   {
     id: 3,
     nombre: "Londres",
+    imagen: "/assets/images/ciudades/londres.webp",
     icono: "lluvia",
     temperatura: 9,
     estado: "lluvia",
@@ -56,6 +66,7 @@ const ciudades = [
   {
     id: 4,
     nombre: "Johannesburgo",
+    imagen: "/assets/images/ciudades/johannesburg.webp",
     icono: "despejado",
     temperatura: 29,
     estado: "despejado",
@@ -74,6 +85,7 @@ const ciudades = [
   {
     id: 5,
     nombre: "Beijing",
+    imagen: "/assets/images/ciudades/beijing.webp",
     icono: "nublado",
     temperatura: 14,
     estado: "nublado",
@@ -92,6 +104,7 @@ const ciudades = [
   {
     id: 6,
     nombre: "San Francisco",
+    imagen: "/assets/images/ciudades/san-francisco.webp",
     icono: "parcial",
     temperatura: 17,
     estado: "parcial",
@@ -110,6 +123,7 @@ const ciudades = [
   {
     id: 7,
     nombre: "Budapest",
+    imagen: "/assets/images/ciudades/budapest.webp",
     icono: "parcial",
     temperatura: 11,
     estado: "parcial",
@@ -128,6 +142,7 @@ const ciudades = [
   {
     id: 8,
     nombre: "El Cairo",
+    imagen: "/assets/images/ciudades/el-cairo.webp",
     icono: "despejado",
     temperatura: 33,
     estado: "despejado",
@@ -146,6 +161,7 @@ const ciudades = [
   {
     id: 9,
     nombre: "París",
+    imagen: "/assets/images/ciudades/paris.webp",
     icono: "parcial",
     temperatura: 13,
     estado: "parcial",
@@ -164,6 +180,7 @@ const ciudades = [
   {
     id: 10,
     nombre: "Sidney",
+    imagen: "/assets/images/ciudades/sidney.webp",
     icono: "despejado",
     temperatura: 26,
     estado: "despejado",
@@ -184,106 +201,54 @@ const ciudades = [
 document.addEventListener("click", e => {
   const btn = e.target.closest(".btn-detalle");
   if (!btn) return;
-
   const id = Number(btn.dataset.id);
-
   const ciudad = ciudades.find(c => c.id === id);
-
   if (!ciudad) return;
 
-  // aquí ya tienes todo sin JSON.parse()
   cargarModal(ciudad);
 });
 
-function cargarModal(ciudad) {
-  // 1. Modal estático
-  document.querySelector('#detalleModalLabel').textContent = ciudad.nombre;
-  document.querySelector('#modalTemp').textContent = `${ciudad.temp}°C`;
-  document.querySelector('#modalEstado').textContent = ciudad.estado;
+function cargarModal({ nombre, imagen, temperatura, estado, humedad, viento, pronosticoSemana }) {
+  document.querySelector('#detalleModalLabel').textContent = nombre;
+  document.querySelector('#modalTemp').textContent = `${temperatura}°C`;
+  document.querySelector('#modalEstado').textContent = estado;
+  document.getElementById("modal-icono").innerHTML = iconos[estado];
+  document.querySelector('.modalImage').src = imagen
 
-  // 2. Icono
-  const icono = document.querySelector('#modalIcono');
-  icono.className = `bi fs-1 ${ciudad.icono}`;
+  document.querySelector('#modalHumedad').textContent = `${humedad}%`;
+  document.querySelector('#modalViento').textContent = `${viento}km/h`;
 
-  // 3. Datos ampliados
-  document.querySelector('#modalHumedad').textContent = ciudad.humedad;
-  document.querySelector('#modalViento').textContent = ciudad.viento;
-
-  // 4. Pronóstico semanal
   const contenedor = document.querySelector('#modalPronostico');
-  contenedor.innerHTML = ""; // limpiar antes
+  contenedor.innerHTML = "";
 
-  ciudad.pronosticoSemana.forEach(dia => {
+  pronosticoSemana.forEach(dia => {
     const item = document.createElement('div');
-    item.className = "d-flex align-items-center justify-content-between border rounded p-2";
-
+    item.className = "item-pronostico border rounded p-2";
     item.innerHTML = `
       <span><strong>${dia.dia}</strong></span>
-      <span><i class="bi ${dia.icono}"></i></span>
-      <span>${dia.temp}°C</span>
-      <span class="text-muted">${dia.estado}</span>
-    `;
-
+      <span class="text-center me-2">${dia.temperatura}°C</span>
+      <span class="text-end">${iconos[dia.estado]}</span>
+      <span class="text-muted text-start ms-1">${dia.estado}</span>
+      `;
     contenedor.appendChild(item);
   });
 
-  // 5. Abrir modal manualmente
   const modal = new bootstrap.Modal('#detalleModal');
   modal.show();
 }
 
+// botón top
 
+const topButton = document.getElementById('btn-top')
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50){
+    topButton.classList.add('show')
+  }
+  else{
+    topButton.classList.remove('show')
+  }
+})
+topButton.addEventListener('click', () => {
+  document.documentElement.scrollTop = 0
+})
 
-/* document.addEventListener("click", e => {
-  const btn = e.target.closest(".btn-detalle");
-  if (!btn) return;
-
-  // Extraer datos del botón
-  const {
-    nombre,
-    icono,
-    estado,
-    temp,
-    humedad,
-    viento,
-    pronostico
-  } = btn.dataset;
-
-  const semana = JSON.parse(pronostico);
-
-  // Llenar contenido principal
-  document.querySelector("#detalleModalLabel").textContent = nombre;
-  document.querySelector("#modalTemp").textContent = `${temp}°C`;
-  document.querySelector("#modalEstado").textContent = estado;
-  document.querySelector("#modalHumedad").textContent = `${humedad}%`;
-  document.querySelector("#modalViento").textContent = `${viento} km/h`;
-
-  const iconoElemento = document.querySelector("#modalIcono");
-  iconoElemento.className = "bi fs-1 " + icono;
-
-  // Limpiar pronóstico anterior
-  const contenedorSemana = document.querySelector("#modalSemana");
-  contenedorSemana.innerHTML = "";
-
-  // Crear tarjetas del pronóstico semanal
-  semana.forEach(dia => {
-    const div = document.createElement("div");
-    div.className = "col-6 col-md-4 text-center";
-
-    div.innerHTML = `
-      <div class="p-3 border rounded">
-        <p class="fw-bold m-0">${dia.dia}</p>
-        <i class="bi ${dia.icono} fs-3"></i>
-        <p class="m-0">${dia.temp}°C</p>
-        <p class="text-muted m-0">${dia.estado}</p>
-      </div>
-    `;
-
-    contenedorSemana.appendChild(div);
-  });
-
-  // Abrir el modal manualmente
-  const modal = new bootstrap.Modal(document.getElementById("detalleModal"));
-  modal.show();
-});
- */
