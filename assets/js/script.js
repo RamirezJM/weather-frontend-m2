@@ -12,7 +12,7 @@ const ciudades = [
   {
     id: 1,
     nombre: "Santiago",
-    imagen: "/assets/images/ciudades/santiago.webp",
+    imagen: "assets/images/ciudades/santiago.webp",
     icono: "despejado",
     temperatura: 27,
     estado: "despejado",
@@ -31,7 +31,7 @@ const ciudades = [
   {
     id: 2,
     nombre: "Nueva York",
-    imagen: "/assets/images/ciudades/nueva-york.webp",
+    imagen: "assets/images/ciudades/nueva-york.webp",
     icono: "nublado",
     temperatura: 12,
     estado: "nublado",
@@ -50,7 +50,7 @@ const ciudades = [
   {
     id: 3,
     nombre: "Londres",
-    imagen: "/assets/images/ciudades/londres.webp",
+    imagen: "assets/images/ciudades/londres.webp",
     icono: "lluvia",
     temperatura: 9,
     estado: "lluvia",
@@ -69,7 +69,7 @@ const ciudades = [
   {
     id: 4,
     nombre: "Johannesburgo",
-    imagen: "/assets/images/ciudades/johannesburg.webp",
+    imagen: "assets/images/ciudades/johannesburg.webp",
     icono: "despejado",
     temperatura: 29,
     estado: "despejado",
@@ -88,7 +88,7 @@ const ciudades = [
   {
     id: 5,
     nombre: "Beijing",
-    imagen: "/assets/images/ciudades/beijing.webp",
+    imagen: "assets/images/ciudades/beijing.webp",
     icono: "nublado",
     temperatura: 14,
     estado: "nublado",
@@ -107,7 +107,7 @@ const ciudades = [
   {
     id: 6,
     nombre: "San Francisco",
-    imagen: "/assets/images/ciudades/san-francisco.webp",
+    imagen: "assets/images/ciudades/san-francisco.webp",
     icono: "parcial",
     temperatura: 17,
     estado: "parcial",
@@ -126,7 +126,7 @@ const ciudades = [
   {
     id: 7,
     nombre: "Budapest",
-    imagen: "/assets/images/ciudades/budapest.webp",
+    imagen: "assets/images/ciudades/budapest.webp",
     icono: "parcial",
     temperatura: 11,
     estado: "parcial",
@@ -145,7 +145,7 @@ const ciudades = [
   {
     id: 8,
     nombre: "El Cairo",
-    imagen: "/assets/images/ciudades/el-cairo.webp",
+    imagen: "assets/images/ciudades/el-cairo.webp",
     icono: "despejado",
     temperatura: 33,
     estado: "despejado",
@@ -164,7 +164,7 @@ const ciudades = [
   {
     id: 9,
     nombre: "París",
-    imagen: "/assets/images/ciudades/paris.webp",
+    imagen: "assets/images/ciudades/paris.webp",
     icono: "parcial",
     temperatura: 13,
     estado: "parcial",
@@ -183,7 +183,7 @@ const ciudades = [
   {
     id: 10,
     nombre: "Sidney",
-    imagen: "/assets/images/ciudades/sidney.webp",
+    imagen: "assets/images/ciudades/sidney.webp",
     icono: "despejado",
     temperatura: 26,
     estado: "despejado",
