@@ -5,6 +5,9 @@ const iconos = {
   parcial: '<i class="bi bi-cloud-sun text-secondary fs-2"></i>',
 };
 
+/* creo un array de objetos con los datos de las ciudades, lo que me permite
+agregarlos de manera dinámica a un sólo modal base */ 
+
 const ciudades = [
   {
     id: 1,
@@ -198,7 +201,11 @@ const ciudades = [
   }
 ];
 
-document.addEventListener("click", e => {
+/* omití la forma nativa de bootstrap de abrir el modal para hacerlo de manera manual con JS.
+   Uso propagación de eventos para hacer el código más eficiente */
+
+const contenedorTarjetas = document.querySelector('#pronostico')
+contenedorTarjetas.addEventListener("click", e => {
   const btn = e.target.closest(".btn-detalle");
   if (!btn) return;
   const id = Number(btn.dataset.id);
@@ -214,7 +221,7 @@ function cargarModal({ nombre, imagen, temperatura, estado, humedad, viento, pro
   document.querySelector('#modalEstado').textContent = estado;
   document.getElementById("modal-icono").innerHTML = iconos[estado];
   document.querySelector('.modalImage').src = imagen
-
+  document.querySelector('.modalImage').alt = nombre
   document.querySelector('#modalHumedad').textContent = `${humedad}%`;
   document.querySelector('#modalViento').textContent = `${viento}km/h`;
 
