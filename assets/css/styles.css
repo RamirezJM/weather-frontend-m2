@@ -26,6 +26,10 @@ body {
   align-items: center;
 }
 
+.form-wrapper{
+  max-width: 600px;
+}
+
 .btn-top {
   position: fixed;
   bottom: 50px;
